@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <style>
+      body {
+        position: relative; /* necesario para posicionamiento absoluto */
+        height: 100vh;
+      }
+
+      .dia {
+        position: absolute;
+        font-size: 24px;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+  </head>
+  <body>
+    <script>
+      for (let dia = 1; dia <= 31; dia++) {
+        document.write(
+          "<div class='dia' style='left:" +
+            dia * 35 +
+            "px; top:" +
+            dia * 25 +
+            "px;'>" +
+            dia +
+            "</div>"
+        );
+      }
+    </script>
+  </body>
+</html>

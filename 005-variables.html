@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp">
+</head>
+<body>
+        <script>
+            var edad = 46;
+            console.log("Mi edad es " + edad);
+            var nombre = "Víctor";
+            console.log("Mi nombre es " + nombre);
+            
+            // REALMENTE NO SE USA VAR, SINO LET Y CONST
+            let ciudad = "Madrid";
+            console.log("Mi ciudad es " + ciudad);
+            const pais = "España";
+            console.log("Mi país es " + pais);
+            ciudad = "Barcelona"; // SE PUEDE CAMBIAR UNA VARIABLE DECLARADA CON LET
+            console.log("Ahora mi ciudad es " + ciudad);
+            
+            //
+            pais = "Francia";
+            // pais = "Francia"; // ERROR, NO SE PUEDE CAMBIAR UNA CONSTANTE
+            
+            // TIPOS DE DATOS
+            let numero = 123; // number
+            let texto = "Hola"; // string
+            let booleano = true; // boolean
+            let nulo = null; // null
+            let indefinido; // undefined, no tiene valor asignado por defecto
+            let objeto = { // object
+                nombre: "Víctor",
+                edad: 46
+            };
+        </script>
+
+</body>
+</html>

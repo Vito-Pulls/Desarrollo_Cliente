@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+  </head>
+  <body>
+    <script>
+      for (let mes = 1; mes <= 12; mes++) {
+        document.write("<h1>Mes:", mes, "</h1>");
+        for (let dia = 1; dia <= 31; dia++) {
+          document.write("<div class='dia'>", dia, "</div>");
+        }
+        document.write("<hr>"); //hr hace un break, pero con una linea divisioria
+      }
+    </script>
+  </body>
+</html>
