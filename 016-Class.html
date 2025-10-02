@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+  </head>
+  <body>
+    <script>
+      class Persona {
+        constructor(nombre, edad) {
+          this.nombre = nombre;
+          this.edad = edad;
+        }
+      }
+      let persona01 = new Persona("Jose Vicente", 46);
+      console.log(persona01);
+
+      //Creamos un array con la misma info que el objeto para comparar la diferencia de visualizacion en consola entre un array u objetos.
+      let personas = [];
+
+      personas["nombre"] = "Jose Vicente";
+      personas["edad"] = "46";
+      console.log(personas);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+  </head>
+  <body>
+    <script>
+      let numero01 = 10;
+      let numero02 = 2;
+      function saludar() {
+        console.log("Qlq mamaguevazo");
+      }
+      function digito(numero01) {
+        return numero01;
+      }
+      function sumar(numero01, numero02) {
+        if (typeof numero01 !== "number" || typeof numero02 !== "number") {
+          return "Inserte solo numeros";
+        } else {
+          return numero01 + numero02;
+        }
+      }
+
+      function restar(numero01, numero02) {
+        if (typeof numero01 !== "number" || typeof numero02 !== "number") {
+          return "Inserte solo numeros";
+        } else {
+          return numero01 - numero02;
+        }
+      }
+
+      function dividir(numero01, numero02) {
+        if (typeof numero01 !== "number" || typeof numero02 !== "number") {
+          return "Inserte solo numeros";
+        } else {
+          return numero01 / numero02;
+        }
+      }
+      function multiplicacion(numero01, numero02) {
+        if (typeof numero01 !== "number" || typeof numero02 !== "number") {
+          return "Inserte solo numeros";
+        } else {
+          return numero01 * numero02;
+        }
+      }
+      saludar();
+      console.log("Digito 1 = " + digito(numero01));
+      console.log(
+        "Suma: ",
+        numero01,
+        " + ",
+        numero02,
+        " = " + sumar(numero01, numero02)
+      );
+      console.log("Resta = " + restar(numero01, numero02));
+      console.log("Multiplicacion = " + multiplicacion(numero01, numero02));
+      console.log("Division = " + dividir(numero01, numero02));
+      console.log(sumar(20, 10));
+    </script>
+  </body>
+</html>
