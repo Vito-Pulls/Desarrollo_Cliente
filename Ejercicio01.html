@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Script JS ejercicio</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp">
+</head>
+<body>
+        <script>
+            /*1. Lea el archivo meses.json.*/
+            const cumpleaños = {
+                "mes": "Enero",
+                "dias": 17
+            }
+            fetch("meses.json")
+                .then(function(respuesta){
+                    return respuesta.json();
+                })
+                .then(function(data){
+                    /*Recorra todos los meses y todos los días de cada mes.*/
+                    for(let mes = 0;mes < data.length;mes++){
+                        let meses = data[mes];
+                        document.write("<h1>¡Empezamos ", meses.mes, "!</h1>","<br>");
+                        for(let dia = 1; dia  <= meses.dias; dia++){
+                            //let dia = data[dias];
+                            if(meses.mes == cumpleaños.mes && dia == cumpleaños.dias){
+                                document.write("<h2>¡Hoy es el dia ", dia," de ",meses.mes," y es mi cumpleaños!</h2>");
+                            }else{
+                            document.write("<h3>Hoy es el dia "+ dia +"</h3>");
+                            }
+                        }
+                        if(mes == 0){
+                            document.write("</br>","<h2>Ya hemos pasado ", mes + 1 , " mes del año</h2>","</br>");
+                        }else{
+                        document.write("</br>","<h2>Ya hemos pasado ", mes + 1 , " meses del año</h2>","</br>");
+                    }
+                    }
+                })
+            
+        </script>
+
+</body>
+</html>
