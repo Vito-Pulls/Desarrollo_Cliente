@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="NoDis"></div>
+    <script>
+      const biblioteca = [
+        {
+          titulo: "El Principito",
+          autor: "Antoine de Sant-Exúpery",
+          disponible: true,
+          precio: 20,
+        },
+        {
+          titulo: "Don Quijote de la Mancha",
+          autor: "Miguel de Cervantes",
+          disponible: true,
+          precio: 30,
+        },
+        {
+          titulo: "El Conde de Montecristo",
+          autor: "Alejandro Dumas",
+          disponible: false,
+          precio: 25,
+        },
+      ];
+
+      let totalLibros = 0;
+      biblioteca.forEach(function (libro) {
+        totalLibros += 1;
+      });
+
+      document.write("Libros de la biblio: </br></br>");
+      biblioteca.forEach(function (libro) {
+        document.write(
+          '"' +
+            libro.titulo +
+            ' "por ' +
+            libro.autor +
+            "</br>" +
+            " Precio: $" +
+            libro.precio +
+            (libro.disponible
+              ? "  -----   Disponible"
+              : " ----- No Disponible") +
+            "</br></br>"
+        );
+      });
+
+      //MARCA TODOS LOS LIBROS COMO NO DISPONIBLES
+      biblioteca.forEach(function (libro) {
+        libro.disponible = false;
+      });
+
+      document.write("Total de libros en Stock: " + totalLibros + "</br>");
+
+      document.write(
+        "</br></br>" + "Despues de actualizar disponibilidad.....  </br></br>"
+      );
+      biblioteca.forEach(function (libro) {
+        document.write(
+          '"' +
+            libro.titulo +
+            '" - ' +
+            (libro.disponible ? "Disponible" : "No disponible") +
+            "</br>"
+        );
+        totalLibros -= 1;
+      });
+      document.write("Total de libros en Stock: " + totalLibros + "</br>");
+    </script>
+  </body>
+</html>

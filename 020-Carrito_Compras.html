@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+  </head>
+  <body>
+    <script>
+      const carrito = [
+        { nombre: "Camisa", precio: 25 },
+        { nombre: "Pantalon", precio: 20 },
+        { nombre: "Zapatos", precio: 60 },
+      ];
+      let total = 0;
+
+      carrito.forEach(function (producto) {
+        document.write(
+          "Producto: " +
+            producto.nombre +
+            " - Precio $" +
+            producto.precio +
+            "</br>"
+        );
+        total += producto.precio;
+      });
+      document.write("Total a pagar: $" + total);
+    </script>
+  </body>
+</html>
