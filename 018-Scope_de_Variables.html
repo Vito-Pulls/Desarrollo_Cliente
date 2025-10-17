@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+  </head>
+  <body>
+    <script>
+      z = 5; // Variable global (sin var, let o const)
+      console.log("Variable global z: " + z); // 5
+      function ejemploAlcance() {
+        if (true) {
+          var x = 15; // Alcance de función
+          let y = 10; // Alcance de bloque
+          console.log("Dentro del bloque if:");
+          console.log("x (var): " + x); // Accesible
+          console.log("y (let): " + y); // Accesible
+          console.log("Variable global z: " + z); // 5
+        }
+        console.log("Fuera del bloque if:");
+        console.log(x); // Accesible
+        console.log(y); // ReferenceError: y no está definido (let es de alcance de bloque)
+        console.log("Variable global z: " + z); // 5
+      }
+
+      function hoisting() {
+        console.log(a); // undefined (hoisting con var)
+        //console.log(b); // ReferenceError: b no está definido (let no se eleva)
+        var a = 20;
+        let b = 30;
+        console.log(a); // 20
+        console.log(b); // 30
+      }
+
+      function redefinicion_Reasignacion() {
+        var c = 30;
+        var c = 40; // Redefinición permitida con var
+
+        let d = 50;
+        //let d = 60; // SyntaxError: Identificador 'd' ya ha sido declarado
+
+        let e = 70;
+        e = 80; // Reasignación permitida
+
+        console.log("c (var): " + c); // 40
+        console.log("d (let): " + d); // 60
+        console.log("e (let): " + e); // 80
+      }
+
+      //ejemploAlcance();
+      //hoisting();
+      redefinicion_Reasignacion();
+    </script>
+  </body>
+</html>
