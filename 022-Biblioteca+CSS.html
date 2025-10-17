@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="NoDis"></div>
+    <div id="listaLibros"></div>
+    <h1>Biblioteca:</h1>
+
+    <script>
+      const biblioteca = [
+        {
+          titulo: "El Principito",
+          autor: "Antoine de Sant-Exúpery",
+          disponible: true,
+          precio: 20,
+        },
+        {
+          titulo: "Don Quijote de la Mancha",
+          autor: "Miguel de Cervantes",
+          disponible: true,
+          precio: 30,
+        },
+        {
+          titulo: "El Conde de Montecristo",
+          autor: "Alejandro Dumas",
+          disponible: false,
+          precio: 25,
+        },
+      ];
+      //IMPORTAMOS DIVs
+      const listaDiv = document.getElementById("listaLibros");
+      const resumenDiv = document.getElementById("resumen");
+
+      let totalLibros = 0;
+      biblioteca.forEach(function (libro) {
+        totalLibros += 1;
+      });
+
+      biblioteca.forEach(function (libro) {
+        const div = document.createElement("div");
+        div.classList.add("libro");
+        div.innerHTML = `
+        <strong>${libro.titulo}</strong><br>
+        Autor: ${libro.autor}<br>
+        Precio: $${libro.precio}<br>
+        <span class="${libro.disponible ? "disponible" : "No disponible"}">
+            ${libro.disponible ? "Disponible" : "No disponible"}
+            </span>
+      `;
+        listaDiv.appendChild(div);
+      });
+
+      //MARCA TODOS LOS LIBROS COMO NO DISPONIBLES
+      biblioteca.forEach(function (libro) {
+        libro.disponible = false;
+      });
+
+      document.write("Total de libros en Stock: " + totalLibros + "</br>");
+
+      let html = "<br><br>Después de actualizar disponibilidad...<br><br>";
+
+      biblioteca.forEach(function (libro) {
+        document.write(
+          '"' +
+            libro.titulo +
+            '" - ' +
+            (libro.disponible ? "Disponible" : "No disponible") +
+            "</br>"
+        );
+        totalLibros -= 1;
+      });
+      document.write("Total de libros en Stock: " + totalLibros + "</br>");
+    </script>
+  </body>
+</html>
