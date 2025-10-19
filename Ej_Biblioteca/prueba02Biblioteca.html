@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prueba02Biblioteca</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        text-align: center;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .libro {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        margin: 10px auto;
+        padding: 12px;
+        width: 340px;
+        text-align: left;
+      }
+
+      .meta {
+        font-size: 14px;
+        color: #555;
+        margin-top: 6px;
+      }
+
+      .disponible {
+        color: green;
+        font-weight: bold;
+      }
+
+      .no-disponible {
+        color: red;
+        font-weight: bold;
+      }
+
+      #NoDis {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #444;
+      }
+
+      .separador {
+        margin: 12px 0;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="NoDis"></div>
+    <h1>Biblioteca:</h1>
+
+    <div id="contenedor"></div>
+    <div id="resumen"></div>
+
+    <script>
+      // --- TU DATA ORIGINAL (sin cambios) ---
+      const biblioteca = [
+        {
+          titulo: "El Principito",
+          autor: "Antoine de Sant-Exúpery",
+          disponible: true,
+          precio: 20,
+        },
+        {
+          titulo: "Don Quijote de la Mancha",
+          autor: "Miguel de Cervantes",
+          disponible: true,
+          precio: 30,
+        },
+        {
+          titulo: "El Conde de Montecristo",
+          autor: "Alejandro Dumas",
+          disponible: false,
+          precio: 25,
+        },
+      ];
+
+      // mantenemos la variable tal como la tenías
+      let totalLibros = 0;
+
+      // --- 1) Contar libros (igual que antes) ---
+      biblioteca.forEach(function (libro) {
+        totalLibros += 1;
+      });
+
+      // --- 2) Mostrar cada libro (reemplaza document.write) ---
+      const contenedor = document.getElementById("contenedor");
+
+      biblioteca.forEach(function (libro) {
+        // Creamos un bloque similar al que generabas con document.write
+        const divLibro = document.createElement("div");
+        divLibro.className = "libro";
+        divLibro.innerHTML =
+          `<strong>"` +
+          libro.titulo +
+          `"</strong> por ` +
+          libro.autor +
+          `<div class="meta">Precio: $` +
+          libro.precio +
+          `</div>` +
+          `<div class="meta"><span class="` +
+          (libro.disponible ? "disponible" : "no-disponible") +
+          `">` +
+          (libro.disponible ? "Disponible" : "No Disponible") +
+          `</span></div>`;
+        contenedor.appendChild(divLibro);
+      });
+
+      // --- 3) Seleccionamos el div donde querías mostrar info (igual que en tu código) ---
+      const noDisDiv = document.getElementById("NoDis");
+      // (lo dejamos seleccionado aunque no lo uses de otra forma, para mantener la lógica original)
+
+      // --- 4) MARCA TODOS LOS LIBROS COMO NO DISPONIBLES (igual que en tu código) ---
+      biblioteca.forEach(function (libro) {
+        libro.disponible = false;
+      });
+
+      // --- 5) Imprimir total de libros en stock (antes lo hacías con document.write) ---
+      const resumen = document.getElementById("resumen");
+      const pTotalAntes = document.createElement("p");
+      pTotalAntes.innerHTML =
+        "<strong>Total de libros en Stock:</strong> " + totalLibros;
+      resumen.appendChild(pTotalAntes);
+
+      // --- 6) Igual que hiciste: variable html con texto y mostrarlo ---
+      let html = "<br><br>Después de actualizar disponibilidad...<br><br>";
+      const separador = document.createElement("div");
+      separador.className = "separador";
+      separador.innerHTML = html;
+      resumen.appendChild(separador);
+
+      // --- 7) Recorremos la biblioteca y mostramos disponibilidad actualizada
+      //      (y en cada iteración restamos totalLibros tal como hacías) ---
+      biblioteca.forEach(function (libro) {
+        const divLibro = document.createElement("div");
+        divLibro.className = "libro";
+        divLibro.innerHTML =
+          '"' +
+          libro.titulo +
+          '" - ' +
+          '<span class="' +
+          (libro.disponible ? "disponible" : "no-disponible") +
+          '">' +
+          (libro.disponible ? "Disponible" : "No disponible") +
+          "</span>";
+        resumen.appendChild(divLibro);
+
+        // aquí preservo la lógica original: restar 1 al total en cada iteración
+        totalLibros -= 1;
+      });
+
+      // --- 8) Mostrar total final (tal cual hacías) ---
+      const pTotalDespues = document.createElement("p");
+      pTotalDespues.innerHTML =
+        "<strong>Total de libros en Stock:</strong> " + totalLibros;
+      resumen.appendChild(pTotalDespues);
+    </script>
+  </body>
+</html>

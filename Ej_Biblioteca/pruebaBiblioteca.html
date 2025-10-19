@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aprendiendo JS</title>
+    <title>pruebaBiblioteca</title>
     <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
 
     <style>
@@ -91,7 +91,7 @@
             <span class="${claseDisponibilidad}">
               ${libro.disponible ? "Disponible" : "No Disponible"}
             </span>
-          </div>`
+          </div>`,
         );
       });
 
@@ -104,7 +104,7 @@
       });
 
       document.write(
-        `<p><strong>Total de libros en Stock:</strong> ${totalLibros}</p>`
+        `<p><strong>Total de libros en Stock:</strong> ${totalLibros}</p>`,
       );
 
       let html = "<br><br>Después de actualizar disponibilidad...<br><br>";
@@ -119,13 +119,13 @@
           `<div class="libro">
             "${libro.titulo}" - <span class="${claseDisponibilidad}">
             ${libro.disponible ? "Disponible" : "No disponible"}</span>
-          </div>`
+          </div>`,
         );
         totalLibros -= 1;
       });
 
       document.write(
-        `<p><strong>Total de libros en Stock:</strong> ${totalLibros}</p>`
+        `<p><strong>Total de libros en Stock:</strong> ${totalLibros}</p>`,
       );
     </script>
   </body>
