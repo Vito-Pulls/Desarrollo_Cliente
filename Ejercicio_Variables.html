@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendiendo JS</title>
+    <link rel="icon" type="image/x-icon" href="RECURSOS/OIP.webp" />
+  </head>
+  <body>
+    <script>
+      let cliente;
+      let producto;
+      let precio;
+      let cantidad;
+      let clubEcoVida;
+      let descuento = null;
+
+      // VALIDACION DE STRINGS \\
+      while (true) {
+        nombre = prompt("Diga nombre del comprador :");
+        producto = prompt("Diga el producto que desea comprar:");
+
+        if (/\d/.test(nombre) || /\d/.test(producto)) {
+          alert("Por favor, inserte sólo letras.");
+          continue;
+        } else if (!nombre || !producto) {
+          alert("Por favor, no deje campos vacíos");
+          continue;
+        }
+        break;
+      }
+
+      // VALIDACIÓN DE LOS NÚMEROS \\
+      while (isNaN(precio) === true) {
+        try {
+          precio = parseFloat(prompt("Diga el precio del producto:"));
+
+          if (isNaN(precio)) {
+            throw new Error("El valor ingresado no es un número válido.");
+          }
+        } catch (error) {
+          alert(
+            "Por favor ingrese un valor numérico para el precio del producto:"
+          );
+        }
+      }
+      while (isNaN(cantidad) === true) {
+        try {
+          cantidad = parseFloat(prompt("Diga la cantidad:"));
+
+          if (isNaN(cantidad)) {
+            throw new Error("El valor ingresado no es un número válido.");
+          }
+        } catch (error) {
+          alert(
+            "Por favor ingrese un valor numérico para la cantidad de productos:"
+          );
+        }
+      }
+      // prettier-ignore
+      clubEcoVida =prompt("¿El cliente pertenece al club EcoVida? (y/n):").toLowerCase() === "y" ? true: false;
+
+      console.log("Nombre del comprador: " + nombre);
+      console.log("Producto: " + producto);
+      console.log("Precio del producto: $" + precio.toFixed(2));
+      console.log("Cantidad: " + cantidad);
+
+      if (cantidad >= 10) {
+        var mensaje = "Usted está comprando al por mayor...";
+        let alerta =
+          "Recuerde revisar si la cantidad es correctamente la que desea...";
+      }
+      console.log(mensaje);
+      //console.log(alerta);-> ReferenceError: alerta is not defined \\
+      /*Las variables declaradas con let son de ámbito de bloque, o sea, si las declaras dentro del If, sólo las puedes usar allí*/
+      /*Mientras que las variables declaradas con var tienen ámbito de función, como aquí no hay una función, se le puede llamar ya que se hace global*/
+
+      let intolerancia;
+      let codigoDescuento = null;
+      console.log("Intoleracia: " + typeof intolerancia);
+      console.log("codigoDescuento: " + typeof codigoDescuento);
+      console.log("Intoleracia == codigoDescuento" + intolerancia == codigoDescuento); //true
+      console.log("Intoleracia === codigoDescuento" +intolerancia === codigoDescuento); //false pq no son del mismo tipo.
+
+      /*
+        El operador '==' realiza coerción de tipos y además en JS hay una regla que dice explícitamente que null == undefined es True.
+        Mientras que '===' es más estricto con los tipos, los valores y tipos de variables deben ser exactos.
+        asi que object(null) != undefined
+      */
+
+      /* 
+        Typeof(variableNull) devuelve un objeto desde la primera versión de JS en 1995
+        Esto es debido a como funciona JavaScript por detrás, resulta que JS utilizaba etiquetas binarias para indicar el tipo
+        Y tanto object como null tenian el identificador binario con solo ceros(object: 000 ; null: 00000000)
+        Por lo que null parece un objeto en la función typeof
+        No se ha resuelto este error debido a que rompería código legacy realizado en versiones antiguas de JS
+      */
+
+      let totalInicial = precio * cantidad;
+      let subTotal = totalInicial;
+      console.log("Precio antes de descuentos: $" + totalInicial);
+      descuento = 0;
+
+      if (totalInicial > 100) {
+        descuento += totalInicial * 0.1;
+        //subTotal -= descuento;
+      }
+      if (clubEcoVida === true) {
+        descuento += totalInicial * 0.05;
+        // descuento += subTotal * 0.05; \\
+        // NO ENTIENDO BIEN SI EL PRECIO YA DESCONTADO ES 5% + 10% O SI ES EL 5% DEL TOTAL - 10% \\
+        //subTotal -= descuento;
+      }
+      if (cantidad > 10) {
+        descuento += totalInicial * 0.03;
+        //descuento += subTotal * 0.03 \\
+        //Igual que en el anterior, si los descuentos adicionales se le acumulan a lo ya descontado sería así, \\
+        // si no, serían sobre el total como lo termine dejando y así se llega a tener un total de 18% de descuento acumuladndo los 3 tipos \\
+        //subTotal -= descuento;
+      }
+
+      //let totalFinal = subtotal;
+      let totalFinal = totalInicial;
+      totalFinal -= descuento;
+      console.log("Precio final: $" + totalFinal);
+      console.log("DESCUENTO aplicado: $" + descuento);
+
+      if (producto.toLowerCase().includes("vegano")){
+        console.log("Gracias por elegir soluciones veganas!!");
+      }else if(producto.toLowerCase().includes("sin gluten")){
+         console.log("Gracias por elegir soluciones sin gluten!!");
+      }
+      
+
+      let allDescuentos = false;
+      if(totalFinal == totalInicial * 0.82){
+        allDescuentos = true;
+      }
+
+      if(clubEcoVida && allDescuentos){
+        console.log("Gracias por apoyar un consumo responsable. Has obtenido el mayor descuento disponible.");
+      }else{
+        console.log("Tu compra es saludable y sostenible. Gracias por elegir EcoVida.");
+      }
+    </script>
+  </body>
+</html>
